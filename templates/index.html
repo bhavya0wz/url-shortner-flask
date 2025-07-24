@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>URL Shortener</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    form input[type="url"] {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      background: #e6f7ff;
+      padding: 15px;
+      border-radius: 8px;
+      word-wrap: break-word;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 14px;
+      background-color: #f0f0f0;
+      color: #444;
+    }
+
+    .footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .box {
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="box">
+      <h2>🔗 URL Shortener</h2>
+      <form method="POST">
+        <input type="url" name="long_url" placeholder="Enter long URL here..." required />
+        <button type="submit">Shorten</button>
+      </form>
+
+      {% if short_url %}
+      <div class="result">
+        <strong>Shortened URL:</strong><br>
+        <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="footer">
+    Made with 💙 by <strong>Bhavya</strong> —
+    <a href="https://github.com/bhavya0wz" target="_blank">GitHub</a> |
+    <span>Project: Flask + TinyURL API</span>
+  </div>
+
+</body>
+</html>
